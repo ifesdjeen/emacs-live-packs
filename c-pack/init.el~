@@ -1,0 +1,47 @@
+;; User pack init file
+;;
+;; User this file to initiate the pack configuration.
+;; See README for more information.
+
+;; Load bindings config
+(live-load-config-file "bindings.el")
+
+(live-add-pack-lib "/xcscope/")
+
+(require 'xcscope)
+(cscope-setup)
+
+
+(live-add-pack-lib "/company-mode/")
+(require 'company)
+(add-hook 'after-init-hook 'global-company-mode)
+(delete 'company-semantic company-backends)
+(add-to-list 'company-backends 'company-c-headers)
+(add-to-list 'company-backends 'company-gtags)
+(add-to-list 'company-backends 'company-files)
+(add-to-list 'company-backends 'company-etags)
+(add-to-list 'company-backends 'company-clang)
+(add-to-list 'company-backends 'company-dabbrev)
+(add-to-list 'company-backends 'company-dabbrev-code)
+(add-to-list 'company-etag-modes 'clojure-mode)
+
+(add-hook 'c-mode-common-hook 'hs-minor-mode)
+
+;; (define-key c-mode-map  [(tab)] 'company-complete)
+(global-set-key [tab] 'company-complete)
+
+(setq c-default-style "gnu"
+      c-basic-offset 2)
+
+
+(setq company-clang-arguments
+      '("-I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/c++/v1"
+        "-I/usr/local/include"
+        "-I/Users/ifesdjeen/hackage/write_nanomsg/collectd/src"
+        "-I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/5.1/include"
+        "-I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"
+        "-I/usr/include"
+        "-I/Users/ifesdjeen/foss/c/glibc/include"))
+
+(setq company-c-headers-path-system
+      '("/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/5.1/include"))

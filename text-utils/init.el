@@ -5,11 +5,12 @@
 
 
 (load "textmate")
-(load "ido-hacks")
+;; (load "ido-hacks")
 (load "deft")
 
-(require 'ido-hacks)
-(ido-hacks-mode)
+;; TODO maybe remove ido-hacks? Helm looks bit better
+;; (require 'ido-hacks)
+;; (ido-hacks-mode)
 
 (require 'textmate)
 (textmate-mode)

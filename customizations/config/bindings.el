@@ -152,8 +152,6 @@
 ;; Clojure mode
 ;;
 
-(global-set-key (kbd "C-x C-z") 'cider-switch-to-repl-buffer)
-(global-set-key (kbd "C-x C-e") 'cider-eval-region)
 
 (global-set-key (kbd "<right>") 'paredit-forward-slurp-sexp)
 (global-set-key (kbd "<left>") 'paredit-forward-barf-sexp)
@@ -270,7 +268,6 @@
 ;;
 ;;
 ;;
-(global-set-key (kbd "M-/") 'hippie-expand)
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
 
@@ -318,10 +315,10 @@
 
 ;;
 (eval-after-load "haskell-mode"
-    '(define-key haskell-mode-map (kbd "C-c C-c") 'haskell-compile))
+  '(define-key haskell-mode-map (kbd "C-c C-c") 'haskell-compile))
 
 (eval-after-load "haskell-cabal"
-    '(define-key haskell-cabal-mode-map (kbd "C-c C-c") 'haskell-compile))
+  '(define-key haskell-cabal-mode-map (kbd "C-c C-c") 'haskell-compile))
 
 
 (global-unset-key (kbd "C-w"))
@@ -344,3 +341,11 @@
 ;;   '(define-key paredit-mode-map (kbd "M-n")     'live-paredit-next-top-level-form))
 
 (cljr-add-keybindings-with-prefix "C-c C-n")
+
+
+(eval-after-load "clojure-mode"
+  '(global-set-key (kbd "C-c M-.") 'cider-jump-back))
+(eval-after-load "clojure-mode"
+  '(global-set-key (kbd "C-x C-z") 'cider-switch-to-repl-buffer))
+(eval-after-load "clojure-mode"
+  '(global-set-key (kbd "C-x C-e") 'cider-eval-region))

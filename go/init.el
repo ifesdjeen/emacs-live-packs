@@ -13,15 +13,13 @@
 
 (live-add-pack-lib "/go-mode.el/")
 (live-add-pack-lib "/f/")
-(live-add-pack-lib "/flymake/")
 (live-add-pack-lib "/flycheck/")
 (live-add-pack-lib "/goflymake/")
 (live-add-pack-lib "/gocode/emacs")
 
 
 (require 'go-flycheck)
-(require 'go-flymake)
 (require 'go-mode)
 
-(require 'go-autocomplete)
-(require 'auto-complete-config)
+;; (require 'go-autocomplete)
+;; (require 'auto-complete-config)
